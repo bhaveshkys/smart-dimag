@@ -73,6 +73,9 @@ class App extends Component {
     this.setState({input :event.target.value});
   }
   onButtonClick=()=>{
+    if(this.state.input.length===0){
+      return(console.log("empty input"))
+    } else{
     this.setState({imageurl: this.state.input});
     fetch('https://murmuring-bayou-87293.herokuapp.com/imageURL',{
       method:'post',
@@ -97,7 +100,7 @@ class App extends Component {
       }
       this.makeBox(this.calculateFaceLocation(response))
     });
-    
+  }
   }
   onRouteChange=(route  )=>{
     if (route==='home') {
