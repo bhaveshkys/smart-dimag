@@ -17,21 +17,22 @@ class Signin extends React.Component {
     onSubmitChange=()=>{
         if(this.state.signInEmail.length===0||this.state.signInPassword.length===0){
             return(console.log("empty input"))
-        }
-        fetch('https://murmuring-bayou-87293.herokuapp.com/signin',{
-            method:'post',
-            headers:{'Content-Type':'application/json'},
-            body : JSON.stringify({
-                email : this.state.signInEmail,
-                password:this.state.signInPassword
+        }else
+        {
+            fetch('https://murmuring-bayou-87293.herokuapp.com/signin',{
+                method:'post',
+                headers:{'Content-Type':'application/json'},
+                body : JSON.stringify({
+                    email : this.state.signInEmail,
+                    password:this.state.signInPassword
+                })
+            }).then(response => response.json()).then(user=>{
+                if(user.id){
+                    this.props.loadUser(user);
+                    this.props.onRouteChange('home');
+                }
             })
-        }).then(response => response.json()).then(user=>{
-            if(user.id){
-                this.props.loadUser(user);
-                this.props.onRouteChange('home');
-            }
-        })
-        
+        }
     }
     
     render(){
