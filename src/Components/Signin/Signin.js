@@ -15,6 +15,9 @@ class Signin extends React.Component {
         this.setState({signInPassword: event.target.value});
     }
     onSubmitChange=()=>{
+        if(this.state.signInEmail.length===0||this.state.signInPassword.length===0){
+            return(console.log("empty input"))
+        }
         fetch('https://murmuring-bayou-87293.herokuapp.com/signin',{
             method:'post',
             headers:{'Content-Type':'application/json'},

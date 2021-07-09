@@ -19,6 +19,9 @@ class Register extends React.Component {
         this.setState({Name: event.target.value});
     }
     onSubmitChange=()=>{
+        if(this.state.Email.length===0||this.state.Password.length===0||this.state.Name.length===0){
+            return(console.log("empty input"))
+        }
         fetch('https://murmuring-bayou-87293.herokuapp.com/register',{
             method:'post',
             headers:{'Content-Type':'application/json'},
