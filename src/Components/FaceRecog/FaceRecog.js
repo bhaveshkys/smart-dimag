@@ -1,7 +1,7 @@
 import React from 'react';
 import './FaceRecog.css';
 import 'tachyons';
-function FaceRecog=( { imageurl, boxes } )=> {
+const FaceRecog=( { imageurl, boxes } )=> {
     return (
         <div className='mw6 center '>
             <div className='  absolute mt2' >
