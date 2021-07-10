@@ -26,7 +26,7 @@ const initialState={
   
     input :'',
     imageurl:'',
-    box:'',
+    boxes:[],
     route:'signin',
     isSignedin:false,
     user :{
@@ -54,20 +54,22 @@ class App extends Component {
     }})
   }
   calculateFaceLocation=(data)=>{
-    const clarifai=data.outputs[0].data.regions[0].region_info.bounding_box;
+    const clarifai=data.outputs[0].data.regions.map(region=>region.region_info.bounding_box);
     const image = document.getElementById('inputimage');
     const width = Number(image.width);
     const height =Number(image.height);
-    return{
-      leftCol: clarifai.left_col*width,
-      topRow:clarifai.top_row *height,
-      rightCol:width-(clarifai.right_col*width),
-      bottomRow:height-(clarifai.bottom_row*height)
-    }
+    return clarifaiFaces.map(face =>{
+      return{
+        leftCol: clarifai.left_col*width,
+        topRow:clarifai.top_row *height,
+        rightCol:width-(clarifai.right_col*width),
+        bottomRow:height-(clarifai.bottom_row*height)
+      }
+    })
   }
-  makeBox =(box)=>{
-    console.log(box);
-    this.setState({box});
+  makeBox =(boxes)=>{
+    console.log(boxes);
+    this.setState({boxes:boxes});
   }
   onInputChange =(event)=>{
     this.setState({input :event.target.value});
@@ -121,7 +123,7 @@ class App extends Component {
             <Rank name={this.state.user.name} entries={this.state.user.entries}/>
             <ImageLinkForm onButtonClick={this.onButtonClick}
             onInputChange={this.onInputChange}/>
-            <FaceRecog box={this.state.box} imageurl={this.state.imageurl}/>
+            <FaceRecog box={this.state.boxes} imageurl={this.state.imageurl}/>
           </div> 
           : 
             (this.state.route==='signin'
