@@ -57,7 +57,7 @@ class App extends Component {
     const image = document.getElementById('inputimage');
     const width = Number(image.width);
     const height =Number(image.height);
-    return clarifaiFaces.map(face =>{
+    return clarifai.map(face =>{
       return{
         leftCol: clarifai.left_col*width,
         topRow:clarifai.top_row *height,
