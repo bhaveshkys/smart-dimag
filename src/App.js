@@ -9,16 +9,26 @@ import { Component } from 'react';
 import FaceRecog from './Components/FaceRecog/FaceRecog';
 import Signin from './Components/Signin/Signin';
 import Register from './Components/Register/Register';
+import Footer from './Components/footer/footer';
 
 
 const particlesOption ={ 
-  particles:{
-    number:{
-      value:185,
-        density :{
-        enable:true,
-        value_area: 800
-      }
+  "particles": 
+  {
+    "number": {
+        "value": 500
+    },
+    "size": {
+        "value": 6
+    }
+  },
+"interactivity": 
+  {
+    "events": {
+        "onhover": {
+            "enable": true,
+            "mode": "repulse"
+        }
     }
   }
 }
@@ -117,16 +127,24 @@ class App extends Component {
           <Navigation isSignedin={this.state.isSignedin} onRouteChange={this.onRouteChange}/>
           {this.state.route=== 'home'
           ?<div>
-            <Logo/>
+            
             <Rank name={this.state.user.name} entries={this.state.user.entries}/>
             <ImageLinkForm onButtonClick={this.onButtonClick}
             onInputChange={this.onInputChange}/>
             <FaceRecog box={this.state.box} imageurl={this.state.imageurl}/>
+            <Footer/>
           </div> 
           : 
             (this.state.route==='signin'
-            ?<Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
-            :<Register loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
+            ?
+            <>
+            <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>,
+              <Footer/>
+            </>
+            :<>
+            <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>,
+              <Footer/>
+            </>
             )
           
           }   

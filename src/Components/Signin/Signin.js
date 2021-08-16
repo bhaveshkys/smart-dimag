@@ -39,25 +39,25 @@ class Signin extends React.Component {
     render(){
         const {onRouteChange}=this.props;
         return (
-            <article className="br2 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw6 center shadow-5">
+            <article className="br-100 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw6 center shadow-5">
                 <main className="pa4 black-80">
                     <for className="measure center">
                         <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-                        <legend className="f2 fw6 ph0 mh0 tc">Sign In</legend>
+                        <legend className="f2 fw6 ph0 mh0 tc white-80 ">Sign In</legend>
                         <div className="mt3">
-                            <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
-                            <input onChange={this.onEmailChange} className="pa2 input-reset ba bw2 b--black bg-transparent hover-bg-black hover-white w-100" type="email" name="email-address"  id="email-address"/>
+                            <label className="db fw6 lh-copy f6 near-white tc" htmlFor="email-address">Email</label>
+                            <input onChange={this.onEmailChange} className="br-pill pa2 input-reset ba  b--white-80 bg-transparent hover-bg-blue hover-white w-100 ph0 mh0 " type="email" name="email-address"  id="email-address"/>
                         </div>
                         <div className="mv3">
-                            <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
-                            <input onChange={this.onPasswordChange} className="b pa2 input-reset ba bw2 b--black bg-transparent hover-bg-black hover-white w-100" type="password" name="password"  id="password"/>
+                            <label className="db fw6 lh-copy f6 near-white tc" htmlFor="password">Password</label>
+                            <input onChange={this.onPasswordChange} className="b br-pill pa2 input-reset ba b--white-80 bg-transparent hover-bg-blue hover-white w-100" type="password" name="password"  id="password"/>
                         </div>
                         </fieldset>
-                        <div className="">
-                        <input onClick={()=>this.onSubmitChange()} className="b ph3 pv2 input-reset ba  b--black bg-transparent grow pointer f6 dib" type="submit" value="Sign in"/>
+                        <div className="tc">
+                        <input onClick={()=>this.onSubmitChange()} className="b ph3 pv2 input-reset ba  b--white-80 bw-2 bg-transparent grow pointer f6 dib near-white tc " type="submit" value="Sign in"/>
                         </div>
                         <div className="lh-copy mt3">
-                        <p  onClick={()=>onRouteChange('register')} className="f5 link dim black db tc pointer">register</p>
+                        <p  onClick={()=>onRouteChange('register')} className="f5 link dim  white-80 db tc pointer">register</p>
                         </div>
                     </for>
                 </main>

@@ -5,15 +5,15 @@ function Navigation({onRouteChange, isSignedin}) {
       if (isSignedin){
         return (
         <nav style={{display: 'flex',justifyContent: 'flex-end'}}>
-          <p onClick={()=>onRouteChange('signin')} className='link f4 b  black hover-orange pa2' >Sign out</p>
+          <p onClick={()=>onRouteChange('signin')} className=' link f4 b  white-80 hover-orange pa2 pointer' >Sign out</p>
         </nav>
         );
         } else{
           return (
-            <nav style={{display: 'flex',justifyContent: 'flex-end'}}>
-              <p onClick={()=>onRouteChange('signin')} className='link f4 b  black hover-orange pa2 ' >Sign in</p>
+            <nav style={{display: 'flex',justifyContent: ' center'}}>
+              <p onClick={()=>onRouteChange('signin')} className='link f4 b  white-80 hover-orange pa2 pointer ' >Sign in</p>
               
-              <p onClick={()=>onRouteChange('register')} className='link f4 b  black hover-orange pa2' >Register</p>
+              <p onClick={()=>onRouteChange('register')} className='link f4 b  white-80 hover-orange pa2 pointer' >Register</p>
             </nav>
             );
 
